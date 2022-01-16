@@ -10,6 +10,7 @@ const { Text } = Typography;
 const { Panel } = Collapse;
 
 const Exchanges = () => {
+  // Note: To access this endpoint you need premium plan
   const { data, isFetching } = useGetExchangesQuery();
   const exchangesList = data?.data?.exchanges;
 
@@ -28,10 +29,10 @@ const Exchanges = () => {
           <Col span={24}>
             <Collapse>
               <Panel
-                key={exchange.id}
+                key={exchange.uuid}
                 showArrow={false}
                 header={(
-                  <Row key={exchange.id}>
+                  <Row key={exchange.uuid}>
                     <Col span={6}>
                       <Text><strong>{exchange.rank}.</strong></Text>
                       <Avatar className="exchange-image" src={exchange.iconUrl} />
